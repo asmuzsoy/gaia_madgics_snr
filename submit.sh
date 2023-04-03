@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --account=sdss-np
-#SBATCH --partition=sdss-np
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=64
+#SBATCH --account=sdss-kp
+#SBATCH --partition=sdss-kp
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=16
 
 #SBATCH --time=24:00:00
 #SBATCH --job-name=gaia_apg

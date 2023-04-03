@@ -2,12 +2,12 @@ import Pkg
 Pkg.activate("/uufs/chpc.utah.edu/common/home/u6039752/scratch/julia_env/dibs/")
 
 
-#using Distributed
-#addprocs(8)
+using Distributed
+addprocs(16)
 
 
-using Distributed, SlurmClusterManager
-addprocs(SlurmManager())
+#using Distributed, SlurmClusterManager
+#addprocs(SlurmManager())
 
 @everywhere println("hello from $(myid()):$(gethostname())")
 flush(stdout)
@@ -37,7 +37,7 @@ end
 
     basework = "/uufs/chpc.utah.edu/common/home/u6039752/scratch/working/"
     #out_dir = basework*"2023_02_06/out/"
-    out_dir = "../test_new_cov_all/"
+    out_dir = "../test_new_cov_all_200_redo/"
 
     # grvs = h5open("../2023_02_06/test_good.h5");
     # grvs = h5open("test_gaia_data1.h5")
@@ -52,7 +52,7 @@ end
 #     covdet = h5read("../2022_11_28/priors/precomp_dust_2_analyticDeriv.h5","covdet");
     
     # prior_file = basework*"/2022_11_28/priors/RVS_stellar_zeroweighted_kry_50_95_const.h5"
-    prior_file = "modified_prior.h5"
+    prior_file = "modified_prior_200.h5"
     Cstar = h5read(prior_file,"Cstar") 
     Cstarinv = h5read(prior_file,"Cstarinv") 
     Vmat_star = h5read(prior_file,"Vmat")
